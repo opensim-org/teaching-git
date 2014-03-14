@@ -4,13 +4,22 @@ teaching-git
 
 Objectives
 ==========
-1. A slideshow to teach the OpenSim developers about:
-    a. the basic inner workings of git.
-    b. how to use git from the command-line (common commands).
-    c. how to use TortoiseGit.
-    d. how to use GitHub.
-    e. basic style conventions (commit message formatting).
-   The slideshow is to be presented to the OpenSim developers no more than a
-   week before most of the OpenSim repository is converted to git and put up on
-   GitHub.
-2. A way for new contributors to OpenSim to learn how to use git for OpenSim.
+1. Why are we switching from SVN to Git (slideshow and discussion)
+	A. what are the benefits and drawbacks of SVN
+	B. What are the benefits and drawbacks of git and GitHub
+	C. To attract more developers we want to make it more social, hence switching to github. 
+	D. How did svn branches, forking etc work
+	E. How Git forking, branches etc work. 
+
+2. Active tutorial- Simbody git
+	a. Starting an account and becoming a memeber of a project
+	b. Using the github interface to clone
+	c. how to use git from the command-line (common commands).
+    	d. how to use TortoiseGit.. 
+	e. basic style conventions..
+
+3. Active tutorial- epimysium (or some other random project we can use) 
+	a. Create a clone.
+	b. Make a change. 
+	C. make a pull request.
+	d. What messages do people get? 
