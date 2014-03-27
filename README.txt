@@ -23,3 +23,11 @@ Objectives
 	b. Make a change. 
 	C. make a pull request.
 	d. What messages do people get? 
+
+
+Resources
+=========
+1. man(ual) page tutorial https://www.kernel.org/pub/software/scm/git/docs/gittutorial.html
+2. Git-SVN crash course (going from SVN to git) http://git-scm.com/course/svn.html
+3. Try Git interactive website http://try.github.io/levels/1/challenges/1
+4. The Git Book http://git-scm.com/book
