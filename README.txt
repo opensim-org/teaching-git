@@ -1,6 +1,7 @@
 teaching-git
 ============
 
+View the slideshow by opening the HTML file in a web browser.
 
 Objectives
 ==========
