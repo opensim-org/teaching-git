@@ -28,7 +28,12 @@ Objectives
 
 Resources
 =========
+0. GitHub's list of sites https://help.github.com/articles/what-are-other-good-resources-for-learning-git-and-github
 1. man(ual) page tutorial https://www.kernel.org/pub/software/scm/git/docs/gittutorial.html
 2. Git-SVN crash course (going from SVN to git) http://git-scm.com/course/svn.html
 3. Try Git interactive website http://try.github.io/levels/1/challenges/1
 4. The Git Book http://git-scm.com/book
+5. Visual guide (lots of diagrams!) http://marklodato.github.io/visual-git-guide/index-en.html
+6. TortoiseGit's graphical instructions
+http://tortoisegit.org/docs/tortoisegit/tgit-dug.html
+7. On UNIX, man gittutorial. On Windows, Git Bash: git help gittutorial

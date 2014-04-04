@@ -59,7 +59,71 @@ class: center, middle
 
 ---
 
-# How is Git different from SVN?
+# Q: How is Git different from SVN? A: branches
+
+---
+
+# Consuming code on GitHub: Simbody
+
+0. Install msysGit
+    a. Use Git Bash only (cannot access git from regular Command Window).
+    b. Checkout Windows-style, commit Unix-style line endings.
+1. Install TortoiseGit.
+2. Configure GIT on your computer.
+    a. git config --global user.name
+    b. git config --global user.email
+3. Create an account on GitHub.
+4. Get added to opensim-org.
+5. Explore the opensim-org page.
+6. Clone the simbody/simbody repository to your computer, using Git.
+8. Explore the simbody repository.
+    a. git log
+    b. git remote
+    b. TODO
+9. TortoiseGit.
+    a. All previous commands.
+    b. Revision Graph.
+
+---
+
+# Contributing with Git and Github: OpenSim
+
+---
+
+# Review of git/GitHub terms and commands
+
+## Terms
+* HEAD
+* master (default)
+* origin
+
+## Commands (what's the equivalent in SVN?)
+* git clone
+* git commit
+* git add
+* git checkout
+* git merge
+* git rebase
+* git reset
+* git branch
+* git tag
+* git remote [add]
+* git cherry-pick
+* git fork
+* git pull-request
+
+---
+
+# Culture
+
+1. Commit messages
+    a. Commit often, and atomically (code should compile at each commit).
+    b. First line should be brief; 70 characters.
+    c. Skip a line before your detailed description.
+
+---
+
+# Git internals / plumbing: the .git folder
 
 </textarea>
 <script src="remark-0.6.2.min.js" type="text/javascript">
