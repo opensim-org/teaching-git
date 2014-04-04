@@ -86,7 +86,7 @@ class: center, middle
 
 ---
 
-# Contributing with Git and Github: teaching-git
+# Contributing with Git and Github: OpenSim
 
 1. GitHub fork.
 2. Clone your fork.
@@ -103,7 +103,18 @@ class: center, middle
     ```
     d. 2 partial commits.
 6. Push your changes to your fork.
+7. Deal with upstream changes.
+    a. Rebase.
+    ```
+    git rebase master
+    ```
 7. Create a pull request.
+
+---
+
+# Developing on a project: teaching-git
+
+Here, the workflow is quicker, since we don't go through forks and PR's.
 
 ---
 
@@ -113,6 +124,7 @@ class: center, middle
 * HEAD
 * master (default)
 * origin
+* upstream
 
 ## Commands (what's the equivalent in SVN?)
 * git clone
@@ -134,6 +146,7 @@ class: center, middle
 
 # Culture
 
+0. Don't work on master.
 1. Commit messages
     a. Commit often, and atomically (code should compile at each commit).
     b. First line should be brief; 70 characters.
