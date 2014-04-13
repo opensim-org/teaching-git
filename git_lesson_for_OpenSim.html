@@ -61,6 +61,23 @@ class: center, middle
 
 # Q: How is Git different from SVN? A: branches
 
+**SVN**
+
+1. Create release branch, develop in parallel with Trunk (unstable)
+2. When release is done, merge release branch back into Trunk.
+
+**GIT**
+
+* Branches are for features, not for releases.
+* No parallel development.
+
+1. To implement a feature, make feature branch.
+2. When done with feature, merge back into Trunk.
+3. master is always stable; unstable code is in feature branches.
+4. When ready for a release, tag a commit on the master branch.
+
+Note: there are no release branches. Not following this convention leads to having to apply the same change to multiple branches.
+
 ---
 
 # Consuming code on GitHub: Simbody
