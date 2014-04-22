@@ -20,8 +20,17 @@ class: center, middle
 
 1. Why are we switching from SVN/SimTK to Git/GitHub?
 2. How is Git different from SVN?
-3. Tutorial A: **using** the Simbody Git repository.
-4. Tutorial B: **contributing** to a repository.
+3. Install git on your computer.
+4. Tutorial A: **using** the Simbody Git repository.
+    a. TortoiseGit
+    b. command-line git
+5. Tutorial B: **contributing** to a repository.
+    a. TortoiseGit
+    b. command-line git
+6. Managing you're own project.
+7. Review of key concepts.
+
+NOT covering: how to be the maintainer of a git project.
 
 ---
 
@@ -33,7 +42,7 @@ class: center, middle
 
     b. discourages code review.
 
-    c. branching requires a lot of inertia, discourages experimenting.
+    c. branching has high inertia, discourages experimenting.
 
     d. difficult for outsiders to contribute to the project (open source?).
 
@@ -41,9 +50,9 @@ class: center, middle
 
     a. easy to take someone's code and modify it for your own purposes (fork).
 
-    b. easy to tell developers about bugs (issues).
+    b. friction-less way to tell developers about bugs (issues).
 
-    c. easy to contribute to projects when you're not a member (pull request).
+    c. easy to contribute to projects to which you're not a member (pull request).
 
     d. job opportunitites (employers ask for your GitHub username).
 
@@ -57,70 +66,141 @@ class: center, middle
 
     d. same number of letters as 'SVN'.
 
----
-
-# Q: How is Git different from SVN? A: branches
 
 ---
+
+# SVN branches vs git branches
+
+**SVN**
+
+* Branches are copies of the code in a different part of the repository.
+* A revision contains all branches.
+* Branches often linger and are not deleted, even after they are no longer used.
+* Branches are made infrequently. Majority of coding happens in master.
+* Our usage of branches:
+    1. Create release branch, develop in parallel with Trunk (unstable)
+    2. When release is done, merge part of release branch back into Trunk.
+
+**GIT**
+
+* Branches are just labels to commits (git's revision).
+* Commits represent a state of the entire repository.
+* Branches are meant to be deleted.
+* Make lots of branches. All work is done in outside of the master branch (for
+    projects of our scale).
+    * Feature branches: "new-component-interface"
+    * Bugfix branches: "issue-37"
+* No parallel development (for the most part, everything goes into master).
+* Usage:
+    1. To implement a feature, make feature branch.
+    2. When done with feature, merge back into Trunk.
+    3. master is always stable; unstable code is in feature branches.
+    4. When ready for a release, tag a commit on the master branch.
+
+TODO figure svn branches vs git branches
+
+---
+
+# Install git
+
+1. Install msysGit
+    a. Use Git Bash only (cannot access git from regular Command Window).
+    b. Checkout Windows-style, commit Unix-style line endings.
+2. Install TortoiseGit.
+3. Configure GIT on your computer.
+    a. git config --global user.name
+    b. git config --global user.email
+    c. SSH TODO
+4. Create an account on GitHub.
+5. Get added to opensim-org.
+6. Explore the opensim-org page.
 
 # Consuming code on GitHub: Simbody
 
-0. Install msysGit
-    a. Use Git Bash only (cannot access git from regular Command Window).
-    b. Checkout Windows-style, commit Unix-style line endings.
-1. Install TortoiseGit.
-2. Configure GIT on your computer.
-    a. git config --global user.name
-    b. git config --global user.email
-3. Create an account on GitHub.
-4. Get added to opensim-org.
-5. Explore the opensim-org page.
-6. Clone the simbody/simbody repository to your computer, using Git.
-8. Explore the simbody repository.
-    a. git log
-    b. git remote
-    b. TODO
-9. TortoiseGit.
-    a. All previous commands.
-    b. Revision Graph.
+1. Clone the simbody/simbody repository to your computer.
+2. Explore with TortoiseGit: clone, log, remotes, branches, tags, checkout, revision graph.
+3. Explore with command-line git:
+    ```
+    git clone https;//github.com/simbody/simbody.git
+    git remote -v # -v for verbose
+    git branch
+    git tag
+    git status
+    git log
+    git checkout Simbody-3.4.1 # this is a tag.
+    ```
 
 ---
 
-# Contributing with Git and Github: OpenSim
+# Contributing: dummy-repo (slide 1)
 
 1. GitHub fork.
 2. Clone your fork.
+    ```
+    git clone https://github.com/myname/dummy-repo.git 
+    ```
 3. Add the upstream repository as a remote on your computer.
+    ```
+    git remote add upstream https://github.com/opensim-org/dummy-repo.git
+    ```
 4. Create a new branch.
+    ```
+    git checkout -b myfeature 
+    ```
 5. Make some changes.
-    a. Edit a file.
-    b. Add a new file (git add).
-        i. Staging area.
-    c. Delete a file (git rm [--cached]).
-    d. What's the state of the repository?
+    a. Create a new file.
+    b. Add a new file.
+    ```
+    git add mynewfile.txt
+    ```
+    d. What's the state of the working copy?
     ```
     git status
     ```
-    d. 2 partial commits.
-6. Push your changes to your fork.
-7. Deal with upstream changes.
-    a. Rebase.
+
+6. Commit changes.
     ```
+    git commit -am"My message." # -a to commit all tracked changes.
+    git commit -m"my message."
+    git commit
+    ```
+
+TODO figure git remotes.
+
+---
+
+# Contributing: dummy-repo (slide 2)
+
+1. Push your changes to your fork.
+    ```
+    git push origin myfeature
+    ```
+2. Create a pull request on GitHub.
+3. Update your local repository and delete your feature branch.
+    ```
+    git checkout master 
+    git pull upstream master
+    git branch -d myfeature # delete LOCAL feature branch
+    ```
+
+4. Deal with upstream changes (that occured while you worked on feature).
+
+    a.  Repeat previous slide.
+
+    b.  Rebase.
+    ```
+    git checkout master
+    git pull upstream master
+    git checkout myfeature
     git rebase master
     ```
-7. Create a pull request.
 
 ---
 
-# Developing on a project: teaching-git
+# Developing on a project for which you're a member (also: personal projects).
 
-Here, the workflow is quicker, since we don't go through forks and PR's.
-
----
-
-# Visually understanding the most important git commands
-
-Visual Git Guide
+* Don't use a fork.
+* Commmit directly to master.
 
 ---
 
@@ -128,23 +208,25 @@ Visual Git Guide
 
 ## Terms
 * HEAD
-* master (default)
+* master
 * origin
 * upstream
 
 ## Commands (what's the equivalent in SVN?)
-* git clone
-* git status
-* git commit
-* git add
-* git checkout
-* git merge
-* git rebase
-* git reset
-* git branch
-* git tag
-* git remote [add]
-* git cherry-pick
+* git clone (svn checkout)
+* git status (svn status)
+* git commit (svn commit)
+* git add (part of svn commit)
+* git checkout (N/A)
+* git merge (svn merge)
+* git rebase (N/A)
+* git reset (svn revert)
+* git branch (N/A)
+* git tag (N/A)
+* git remote [add] (N/A)
+* git cherry-pick (N/A)
+* git rm [--cached]
+* git init
 * git fork
 * git pull-request
 
@@ -152,17 +234,13 @@ Visual Git Guide
 
 # Culture
 
-0. Don't work on master.
-1. Commit messages
-    a. Commit often, and atomically (code should compile at each commit).
+1. Don't work directly on the master branch.
+2. Commit often, and atomically (code should compile at each commit).
+3. Commit messages
+
     b. First line should be brief; 70 characters.
+
     c. Skip a line before your detailed description.
-
----
-
-# Git internals / plumbing: the .git folder
-
-```git cat-file -p <SHA-1>```
 
 </textarea>
 <script src="remark-0.6.2.min.js" type="text/javascript">
