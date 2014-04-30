@@ -73,7 +73,6 @@ NOT covering: how to be the maintainer of a git project.
 **SVN**
 
 * Branches are copies of the code in a different part of the repository.
-* A revision contains all branches.
 * Branches often linger and are not deleted, even after they are no longer used.
 * Branches are made infrequently. Majority of coding happens in master.
 * Our usage of branches:
@@ -83,48 +82,40 @@ NOT covering: how to be the maintainer of a git project.
 **GIT**
 
 * Branches are just labels to commits (git's revision).
-* Commits represent a state of the entire repository.
+* Commits represent a state (snapshot) of the entire repository.
 * Branches are meant to be deleted.
 * Make lots of branches. All work is done in outside of the master branch (for
     projects of our scale).
     * Feature branches: "new-component-interface"
     * Bugfix branches: "issue-37"
-* No parallel development (for the most part, everything goes into master).
 * Usage:
     1. To implement a feature, make feature branch.
-    2. When done with feature, merge back into Trunk.
+    2. When done with feature, merge back into master ("Trunk").
     3. master is always stable; unstable code is in feature branches.
-    4. When ready for a release, tag a commit on the master branch.
-
-TODO figure svn branches vs git branches
 
 ---
 
 # SVN branches vs git branches
-<img src="D:\Repo\GitHub\teaching-git\images\figure1\Slide2.jpg" alt="Slide1" height="440" width="800">
+<img src="images/figure1/Slide2.jpg" alt="Slide1" height="440" width="800">
 
-
----
-
-# Git
-
-<img src="D:\Repo\GitHub\teaching-git\images\figure1\Slide1.jpg" alt="Slide1" height="440" width="800">
 
 ---
 
 # Install git
 
 1. Install msysGit (git for windows)
-    a. Use Git Bash only (cannot access git from regular Command Window).
-    b. Checkout Windows-style, commit Unix-style line endings.
+    1. Use Git Bash only (cannot access git from regular Command Window).
+    2. Checkout Windows-style, commit Unix-style line endings.
 2. Install TortoiseGit.
 3. Configure GIT on your computer.
-    a. git config --global user.name
-    b. git config --global user.email
-    c. SSH...not now.
+    1. `git config --global user.name "Christopher Dembia"`
+    2. `git config --global user.email "cld72@cornell.edu"`
+    3. SSH...not now.
 4. Create an account on GitHub.
 5. Get added to opensim-org.
 6. Explore the opensim-org page.
+
+---
 
 # Consuming code on GitHub: Simbody
 
@@ -140,6 +131,12 @@ TODO figure svn branches vs git branches
     git log
     git checkout Simbody-3.4.1 # this is a tag.
     ```
+
+---
+
+# Git is a distributed VCS: remotes
+
+<img src="images/figure1/Slide1.jpg" alt="Slide1" height="440" width="800">
 
 ---
 
@@ -159,12 +156,13 @@ TODO figure svn branches vs git branches
     git checkout -b myfeature 
     ```
 5. Make some changes.
-    a. Create a new file.
-    b. Add a new file.
+    1. Create a new file.
+    2. Add the new file.
     ```
     git add mynewfile.txt
     ```
-    d. What's the state of the working copy?
+    3. Mess around!
+    4. What's the state of the working copy?
     ```
     git status
     ```
@@ -176,8 +174,6 @@ TODO figure svn branches vs git branches
     git commit
     ```
 
-TODO figure git remotes.
-
 ---
 
 # Contributing: dummy-opensim-core (slide 2)
@@ -186,7 +182,8 @@ TODO figure git remotes.
     ```
     git push origin myfeature
     ```
-2. Create a pull request on GitHub.
+2. Create a pull request (PR) on GitHub.
+3. Wait for your PR to be accepted.
 3. Update your local repository and delete your feature branch.
     ```
     git checkout master 
@@ -194,9 +191,20 @@ TODO figure git remotes.
     git branch -d myfeature # delete LOCAL feature branch
     ```
 
-4. Deal with upstream changes (that occured while you worked on feature).
+---
 
-    a.  Repeat previous slide.
+# Contributing: dummy-opensim-core (slide 3)
+
+1. Deal with upstream changes (that occured while you worked on feature).
+
+    a.  Repeat previous two slides.
+    ```
+    git checkout -b feature2
+    (mess around)
+    git commit -am"Destroyed OpenSim."
+    git push origin feature2
+    (submit pull request)
+    ```
 
     b.  Rebase.
     ```
@@ -204,6 +212,9 @@ TODO figure git remotes.
     git pull upstream master
     git checkout myfeature
     git rebase master
+    git push origin :feature2 (deletes branch on GitHub)
+    git push origin feature2
+    (pull request can now be accepted)
     ```
 
 ---
@@ -211,7 +222,8 @@ TODO figure git remotes.
 # Developing on a project for which you're a member (also: personal projects).
 
 * Don't use a fork.
-* Commmit directly to master.
+* For SMALL changes, commmit directly to master.
+* Submit pull requests WITHIN the same user/organization (on GitHub).
 
 ---
 
@@ -224,18 +236,18 @@ TODO figure git remotes.
 * upstream
 
 ## Commands (what's the equivalent in SVN?)
-* git clone (svn checkout)
-* git status (svn status)
-* git commit (svn commit)
-* git add (part of svn commit)
-* git checkout (N/A)
-* git merge (svn merge)
-* git rebase (N/A)
-* git reset (svn revert)
-* git branch (N/A)
-* git tag (N/A)
-* git remote [add] (N/A)
-* git cherry-pick (N/A)
+* git clone
+* git status
+* git commit
+* git add
+* git checkout
+* git merge
+* git rebase
+* git reset
+* git branch
+* git tag
+* git remote [add]
+* git cherry-pick
 * git rm [--cached]
 * git init
 * git fork
