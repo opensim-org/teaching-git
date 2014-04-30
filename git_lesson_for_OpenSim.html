@@ -5,6 +5,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <style type="text/css">
 /* Slideshow styles */
+.pull-left {
+    float: left;
+    width: 40%
+}
+.pull-right {
+    float: right;
+    width: 60%
+}
 </style>
 </head>
 <body>
@@ -70,33 +78,32 @@ NOT covering: how to be the maintainer of a git project.
 
 # SVN branches vs git branches
 
+.pull-right[
+<img src="images/figure1/Slide4.JPG" alt="Slide1" height="150">
+
+<br>
+<br>
+<br>
+<br>
+<img src="images/figure1/Slide3.JPG" alt="Slide1" height="200">
+]
+.pull-left[
 **SVN**
 
 * Branches are copies of the code in a different part of the repository.
-* Branches often linger and are not deleted, even after they are no longer used.
-* Branches are made infrequently. Majority of coding happens in master.
-* Our usage of branches:
-    1. Create release branch, develop in parallel with Trunk (unstable)
-    2. When release is done, merge part of release branch back into Trunk.
+* Branches are made infrequently, often linger and are not deleted, even after they are no longer used.
+1. Create release branch, develop in parallel with Trunk (unstable)
+2. When release is done, merge part of release branch back into Trunk.
 
 **GIT**
 
 * Branches are just labels to commits (git's revision).
-* Commits represent a state (snapshot) of the entire repository.
-* Branches are meant to be deleted.
-* Make lots of branches. All work is done in outside of the master branch (for
-    projects of our scale).
-    * Feature branches: "new-component-interface"
-    * Bugfix branches: "issue-37"
-* Usage:
-    1. To implement a feature, make feature branch.
-    2. When done with feature, merge back into master ("Trunk").
-    3. master is always stable; unstable code is in feature branches.
-
----
-
-# SVN branches vs git branches
-<img src="images/figure1/Slide2.jpg" alt="Slide1" height="440" width="800">
+* Branches are made frequently, and are meant to be deleted. All work is done
+in branches other than master.
+1. To implement a feature, make feature branch ('new-component-interface').
+2. When done with feature, merge back into master ("Trunk").
+3. master is always stable; unstable code is in feature branches.
+]
 
 
 ---
@@ -136,7 +143,7 @@ NOT covering: how to be the maintainer of a git project.
 
 # Git is a distributed VCS: remotes
 
-<img src="images/figure1/Slide1.jpg" alt="Slide1" height="440" width="800">
+<img src="images/figure1/Slide1.JPG" alt="Slide1" height="440" width="800">
 
 ---
 
