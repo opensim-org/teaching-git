@@ -26,8 +26,10 @@ class: center, middle
 
 # Agenda
 
+1. Quick tour of GitHub.
 1. Why are we switching from SVN/SimTK to Git/GitHub?
 2. How is Git different from SVN?
+3. How does Git store your history?
 3. Install git on your computer.
 4. Tutorial A: **using** the Simbody Git repository.
     1. TortoiseGit
@@ -35,7 +37,7 @@ class: center, middle
 5. Tutorial B: **contributing** to a repository.
     1. TortoiseGit
     2. command-line git
-6. Managing you're own project.
+6. Managing your own project.
 7. Review of key concepts.
 
 NOT covering: how to be the maintainer of a git project.
@@ -105,6 +107,41 @@ in branches other than master.
 3. master is always stable; unstable code is in feature branches.
 ]
 
+
+---
+
+# A commit contains metadata and the tree of the files at that point in history.
+
+<img src="images/git_scm_0_commit_tree_blob.png">
+
+---
+
+# The history is a graph of commits.
+
+Branches, such as `master`,  are just pointers to a particular commit.
+
+<img src="images/git_scm_1_simple_history.png">
+
+---
+
+# HEAD refers to the branch/commit currently checked out.
+
+Here, we've created a new branch `testing`, that points to the same commit as
+does `master`.
+
+<img src="images/git_scm_2_checkout_testing.png">
+
+---
+
+# This is what the history looks like when we commit on the testing branch.
+
+<img src="images/git_scm_3_commit_on_testing.png">
+
+---
+
+# This is what the history looks like if the branches have diverged.
+
+<img src="images/git_scm_4_history_diverged.png">
 
 ---
 
