@@ -37,3 +37,4 @@ Resources
 6. TortoiseGit's graphical instructions
 http://tortoisegit.org/docs/tortoisegit/tgit-dug.html
 7. On UNIX, man gittutorial. On Windows, Git Bash: git help gittutorial
+8. Excellent quickstart including video tutorials and workflow http://www.dataschool.io/git-quick-reference-for-beginners/
